@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Time To Pill | 홈 (로그인)</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="app-header">
+    <div class="brand">
+        <div class="brand__icon" aria-hidden="true"></div>
+        <div class="brand__title" onclick="location.href='home-auth.html'">Time To Pill</div>
+    </div>
+    <div class="header-links user-slot">
+        <div class="user-slot__menu dropdown">
+            <span class="dropdown__toggle">약 검색</span>
+            <div class="dropdown__menu" role="menu">
+                <a class="header-links__item" href="add-pill.html" role="menuitem">처방약 검색</a>
+                <a class="header-links__item" href="search.html" role="menuitem">비처방약 검색</a>
+            </div>
+        </div>
+        <div class="user-slot__menu dropdown">
+            <span class="dropdown__toggle">user 님 환영합니다.</span>
+            <div class="dropdown__menu" role="menu">
+                <a class="header-links__item" href="mypage.html" role="menuitem">마이페이지</a>
+                <a class="header-links__item" href="index.html" role="menuitem">로그아웃</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="brand__title">오늘의 복약</div>
+    <section class="stack stack--spread" style="align-items:flex-start;">
+        <div class="card card--outline" style="flex:2;">
+            <h2>캘린더</h2>
+            <p>이미지 스캔, 텍스트 검색으로 추가한 약들을 모두 구글 캘린더에 연동</p>
+            <ul>
+                <li class="pill-status--ok">복용 가능 - 초록색</li>
+                <li class="pill-status--warn">졸음 주의 - 노란색</li>
+                <li class="pill-status--danger">혼합 복용 불가 - 빨간색</li>
+            </ul>
+        </div>
+        <div class="card" style="flex:1;">
+            <div class="pill-section">
+                <h3>아침 약</h3>
+                <div class="checkbox-row">
+                    <input type="checkbox">
+                    <button type="button" class="pill-detail-btn" data-pill="아침 약 1">내가 복용하고 있는 약</button>
+                </div>
+                <p class="warning-note">유의사항 (졸음 / 혼합 복용 불가)</p>
+            </div>
+            <div class="pill-section" style="margin-top:16px;">
+                <h3>점심 약</h3>
+                <div class="checkbox-row">
+                    <input type="checkbox">
+                    <button type="button" class="pill-detail-btn" data-pill="점심 약 1">내가 복용하고 있는 약</button>
+                </div>
+                <p class="warning-note">유의사항 (졸음 / 혼합 복용 불가)</p>
+            </div>
+            <div class="pill-section" style="margin-top:16px;">
+                <h3>저녁 약</h3>
+                <div class="checkbox-row">
+                    <input type="checkbox">
+                    <button type="button" class="pill-detail-btn" data-pill="저녁 약 1">내가 복용하고 있는 약</button>
+                </div>
+                <p class="warning-note">유의사항 (졸음 / 혼합 복용 불가)</p>
+            </div>
+        </div>
+    </section>
+</main>
+<div class="overlay" id="pillDetailOverlay" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true">
+        <button class="modal-card__close" aria-label="닫기">&times;</button>
+        <h2 id="pillDetailTitle">약품 상세</h2>
+        <p id="pillDetailDescription">선택한 약품의 상세 정보가 이곳에 표시됩니다.</p>
+        <button class="btn btn--primary" id="pillDetailCloseBtn">닫기</button>
+    </div>
+</div>
+
+<script>
+    const overlay = document.getElementById('pillDetailOverlay');
+    const titleEl = document.getElementById('pillDetailTitle');
+    const descEl = document.getElementById('pillDetailDescription');
+    const closeButtons = [overlay.querySelector('.modal-card__close'), document.getElementById('pillDetailCloseBtn')];
+
+    document.querySelectorAll('.pill-detail-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const pillName = btn.dataset.pill || '복용 중인 약';
+            titleEl.textContent = pillName;
+            descEl.textContent = `${pillName}의 효능, 복용 방법, 주의사항 등이 여기에 노출됩니다.`;
+            overlay.classList.add('is-active');
+            overlay.setAttribute('aria-hidden', 'false');
+        });
+    });
+
+    const closeOverlay = () => {
+        overlay.classList.remove('is-active');
+        overlay.setAttribute('aria-hidden', 'true');
+    };
+
+    closeButtons.forEach((btn) => btn.addEventListener('click', closeOverlay));
+    overlay.addEventListener('click', (event) => {
+        if (event.target === overlay) {
+            closeOverlay();
+        }
+    });
+</script>
+</body>
+</html>
+

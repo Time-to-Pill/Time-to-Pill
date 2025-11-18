@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인 | Time To Pill</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="app-header">
+    <div class="brand">
+        <div class="brand__icon" aria-hidden="true"></div>
+        <a class="brand__title" href="index.html">Time To Pill</a>
+    </div>
+    <nav class="header-links">
+        <a class="header-links__item" href="search.html">약 검색</a>
+        <a class="header-links__item" href="login.html">로그인</a>
+    </nav>
+</header>
+
+<main>
+    <form class="form card">
+        <h1 class="form__title">로그인</h1>
+        <label class="form__group">
+            <span class="form__label">아이디</span>
+            <input class="form__input" type="text" placeholder="아이디를 입력하세요">
+        </label>
+        <label class="form__group">
+            <span class="form__label">비밀번호</span>
+            <input class="form__input" type="password" placeholder="비밀번호를 입력하세요">
+        </label>
+        <div class="stack stack--column" style="margin-top:32px;">
+            <button type="button" class="btn btn--primary" onclick="location.href='home-auth.html'">로그인</button>
+            <button type="button" class="form__helper" style="text-align:center;" onclick="location.href='register.html'">회원가입</button>
+        </div>
+    </form>
+</main>
+</body>
+</html>
+

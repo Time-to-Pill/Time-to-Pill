@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>마이페이지 | Time To Pill</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="app-header">
+    <div class="brand">
+        <div class="brand__icon" aria-hidden="true"></div>
+        <a class="brand__title" href="home-auth.html">Time To Pill</a>
+    </div>
+    <div class="header-links user-slot">
+        <!--<a class="header-links__item" href="search.html">약 검색</a>-->
+        <div class="user-slot__menu">
+            <!--<span>user 님 환영합니다.</span>-->
+            <a class="header-links__item" href="index.html">회원탈퇴</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="card stack stack--column">
+        <div>
+            <h1>My Page</h1>
+            <h2>개인정보 수정</h2>
+        </div>
+        <form class="stack stack--column">
+            <div class="form__group">
+                <span class="form__label">닉네임 *</span>
+                <div class="form__inline">
+                    <input class="form__input" type="text" placeholder="닉네임" style="flex:1;">
+                    <button type="button" class="btn">중복확인</button>
+                </div>
+            </div>
+            <div class="form__group">
+                <span class="form__label">나이</span>
+                <select class="form__select">
+                    <option>선택</option>
+                </select>
+            </div>
+            <div class="form__group">
+                <span class="form__label">성별</span>
+                <div class="form__inline">
+                    <label><input type="radio" name="mypage-gender"> 남</label>
+                    <label><input type="radio" name="mypage-gender"> 여</label>
+                </div>
+            </div>
+            <label class="form__group">
+                <span class="form__label">비밀번호 *</span>
+                <input class="form__input" type="password">
+            </label>
+            <label class="form__group">
+                <span class="form__label">비밀번호 확인 *</span>
+                <input class="form__input" type="password">
+            </label>
+            <button type="button" class="btn" style="align-self:flex-start;">Google 계정으로 계속하기</button>
+        </form>
+
+        <section>
+            <h2>복용약 수정</h2>
+            <div class="card" style="max-height:220px; overflow:auto;">
+                <div class="checkbox-row">
+                    <input type="checkbox"> <span>내가 복용하고 있는 약</span>
+                </div>
+                <div class="checkbox-row">
+                    <input type="checkbox"> <span>내가 복용하고 있는 약</span>
+                </div>
+            </div>
+        </section>
+
+        <button type="button" class="btn btn--primary" style="align-self:center; margin-top:24px;" onclick="location.href='home-auth.html'">저장</button>
+    </section>
+</main>
+</body>
+</html>
+

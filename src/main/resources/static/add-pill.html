@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>복용 약 추가 | Time To Pill</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="app-header">
+    <div class="brand">
+        <div class="brand__icon" aria-hidden="true"></div>
+        <a class="brand__title" href="home-auth.html">Time To Pill</a>
+    </div>
+    <div class="header-links user-slot">
+        <div class="user-slot__menu dropdown">
+            <span class="dropdown__toggle">약 검색</span>
+            <div class="dropdown__menu" role="menu">
+                <a class="header-links__item" href="add-pill.html" role="menuitem">처방약 검색</a>
+                <a class="header-links__item" href="search.html" role="menuitem">비처방약 검색</a>
+            </div>
+        </div>
+        <div class="user-slot__menu dropdown">
+            <span class="dropdown__toggle">user 님 환영합니다.</span>
+            <div class="dropdown__menu" role="menu">
+                <a class="header-links__item" href="mypage.html" role="menuitem">마이페이지</a>
+                <a class="header-links__item" href="index.html" role="menuitem">로그아웃</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="stack stack--column">
+        <button class="card card--outline" style="min-height:240px; border:none; cursor:pointer;">
+            <h2>이미지 추가</h2>
+        </button>
+        <button class="btn" style="align-self:center;" onclick="location.href='alerts.html'">이미지 업로드</button>
+        <div class="card">
+            <p>처방받은 봉투를 찍어 업로드 해주세요.</p>
+            <p>처방받은 약을 바탕으로 캘린더에 자동 추가됩니다.</p>
+            <p>충분한 빛이 있는 곳에서 사진 촬영을 부탁드립니다.</p>
+        </div>
+    </section>
+</main>
+</body>
+</html>
+

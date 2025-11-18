@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>약 리포트 | Time To Pill</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="app-header">
+    <div class="brand">
+        <div class="brand__icon" aria-hidden="true"></div>
+        <a class="brand__title" href="home-auth.html">Time To Pill</a>
+    </div>
+    <div class="header-links user-slot">
+        <div class="user-slot__menu dropdown">
+            <span class="dropdown__toggle">약 검색</span>
+            <div class="dropdown__menu" role="menu">
+                <a class="header-links__item" href="add-pill.html" role="menuitem">처방약 검색</a>
+                <a class="header-links__item" href="search.html" role="menuitem">비처방약 검색</a>
+            </div>
+        </div>
+        <div class="user-slot__menu dropdown">
+            <span class="dropdown__toggle">user 님 환영합니다.</span>
+            <div class="dropdown__menu" role="menu">
+                <a class="header-links__item" href="mypage.html" role="menuitem">마이페이지</a>
+                <a class="header-links__item" href="index.html" role="menuitem">로그아웃</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="stack stack--column">
+        <h1>타이레놀</h1>
+        <article class="modal">
+            <header class="stack stack--spread" style="align-items:center;">
+                <h2 class="modal__title">REPORT</h2>
+                <a class="header-links__item" href="search-results.html">닫기 ✕</a>
+            </header>
+            <div class="stack stack--column">
+                <div class="card">
+                    <h3>약 이름</h3>
+                    <p>어쩌고 저쩌고 약 설명 텍스트</p>
+                </div>
+                <div class="card">
+                    <h3>약 효능 / 복용 방법 / 주의 사항 summary</h3>
+                    <p>간단한 요약이 들어갈 자리</p>
+                </div>
+                <div class="card stack stack--column">
+                    <h3>운전 주의, 졸음 유발, 임산부 주의, 알코올 병용 주의 태그</h3>
+                    <p>상세설명 펼치기 버튼 → AI 요약 설명</p>
+                    <button class="btn" onclick="openAiSummaryModal()">AI 요약</button>
+                </div>
+            </div>
+            <button class="btn btn--primary" style="margin-top:24px;" onclick="location.href='search-results.html'">추가</button>
+        </article>
+    </section>
+</main>
+
+<!-- AI 요약 모달 -->
+<div class="overlay" id="aiSummaryModal">
+    <div class="modal-card">
+        <button class="modal-card__close" onclick="closeAiSummaryModal()" aria-label="닫기">✕</button>
+        <div class="stack stack--column" style="gap: 16px;">
+            <h2 style="margin: 0;">AI 요약</h2>
+            <p style="color: var(--text-light); line-height: 1.6;">
+                해당 약에 대한 리포트를 AI로 요약한 텍스트가 작성될 예정입니다.
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+function openAiSummaryModal() {
+    document.getElementById('aiSummaryModal').classList.add('is-active');
+}
+
+function closeAiSummaryModal() {
+    document.getElementById('aiSummaryModal').classList.remove('is-active');
+}
+
+// 모달 외부 클릭 시 닫기
+document.getElementById('aiSummaryModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeAiSummaryModal();
+    }
+});
+</script>
+</body>
+</html>
+

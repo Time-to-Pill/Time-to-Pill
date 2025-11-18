@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>약 검색 | Time To Pill</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="app-header">
+    <div class="brand">
+        <div class="brand__icon" aria-hidden="true"></div>
+        <a class="brand__title" href="home-auth.html">Time To Pill</a>
+    </div>
+    <div class="header-links user-slot">
+        <div class="user-slot__menu dropdown">
+            <span class="dropdown__toggle">약 검색</span>
+            <div class="dropdown__menu" role="menu">
+                <a class="header-links__item" href="add-pill.html" role="menuitem">처방약 검색</a>
+                <a class="header-links__item" href="search.html" role="menuitem">비처방약 검색</a>
+            </div>
+        </div>
+        <div class="user-slot__menu dropdown">
+            <span class="dropdown__toggle">user 님 환영합니다.</span>
+            <div class="dropdown__menu" role="menu">
+                <a class="header-links__item" href="mypage.html" role="menuitem">마이페이지</a>
+                <a class="header-links__item" href="index.html" role="menuitem">로그아웃</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="stack stack--column">
+        <h1>약물 이름 검색</h1>
+        <input class="form__input tag-input" type="text" placeholder="약물 이름을 입력하세요">
+
+        <h2>증상 기반 검색</h2>
+        <p class="form__helper">#증상 뒤에 쓰기하면 하나의 해시태그로 검색됩니다.</p>
+        <input class="form__input tag-input" type="text" placeholder="#감기 #두통">
+
+        <button class="btn btn--primary" style="align-self:center;" onclick="location.href='search-results.html'">검색</button>
+
+        <div class="card" style="margin-top:32px;">
+            <h3>최근 검색</h3>
+            <div class="recent-tags">
+                <span class="tag">#감기</span>
+                <span class="tag">#두통</span>
+                <span class="tag">#타이레놀</span>
+                <span class="tag">#소화불량</span>
+            </div>
+        </div>
+    </section>
+</main>
+</body>
+</html>
+

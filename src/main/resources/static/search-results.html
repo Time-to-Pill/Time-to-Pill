@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>검색 결과 | Time To Pill</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="app-header">
+    <div class="brand">
+        <div class="brand__icon" aria-hidden="true"></div>
+        <a class="brand__title" href="home-auth.html">Time To Pill</a>
+    </div>
+    <div class="header-links user-slot">
+        <div class="user-slot__menu dropdown">
+            <span class="dropdown__toggle">약 검색</span>
+            <div class="dropdown__menu" role="menu">
+                <a class="header-links__item" href="add-pill.html" role="menuitem">처방약 검색</a>
+                <a class="header-links__item" href="search.html" role="menuitem">비처방약 검색</a>
+            </div>
+        </div>
+        <div class="user-slot__menu dropdown">
+            <span class="dropdown__toggle">user 님 환영합니다.</span>
+            <div class="dropdown__menu" role="menu">
+                <a class="header-links__item" href="mypage.html" role="menuitem">마이페이지</a>
+                <a class="header-links__item" href="index.html" role="menuitem">로그아웃</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="stack stack--column">
+        <header class="stack stack--spread" style="align-items:center;">
+            <h1>타이레놀</h1>
+            <a class="header-links__item" href="search.html">검색 다시하기</a>
+        </header>
+
+        <article class="card stack stack--column">
+            <div class="search-card">
+                <label class="checkbox-row" style="margin:0;">
+                    <input type="checkbox">
+                </label>
+                <div class="search-card__media" aria-hidden="true"></div>
+                <div class="search-card__meta">
+                    <h3>어쩌고 저쩌고</h3>
+                    <p>은이번러니람날리 뭐시기 설명이 이어지는 긴 텍스트 영역 요약</p>
+                </div>
+                <div class="search-card__actions">
+                    <a class="btn" href="pill-report.html">report</a>
+                </div>
+            </div>
+
+            <div class="search-card">
+                <label class="checkbox-row" style="margin:0;">
+                    <input type="checkbox">
+                </label>
+                <div class="search-card__media" aria-hidden="true"></div>
+                <div class="search-card__meta">
+                    <h3>어쩌고 저쩌고</h3>
+                    <p>은이번러니람날리 뭐시기 설명이 이어지는 긴 텍스트 영역 요약</p>
+                </div>
+                <div class="search-card__actions">
+                    <a class="btn" href="pill-report.html">report</a>
+                </div>
+            </div>
+
+            <button class="btn btn--primary" id="addConfirmButton" style="align-self:center; margin-top:16px;">추가</button>
+            <!--<p class="form__helper" style="text-align:center;">추가 시 “추가 확인 메시지 박스” 띄우기</p>-->
+        </article>
+    </section>
+</main>
+<div class="overlay" id="addConfirmOverlay" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true">
+        <h2>추가하시겠습니까?</h2>
+        <p>선택한 약을 복용 목록에 추가할까요?</p>
+        <div class="stack stack--spread" style="margin-top:24px;">
+            <button class="btn" id="addCancelBtn">아니오</button>
+            <button class="btn btn--primary" id="addOkBtn">네</button>
+        </div>
+    </div>
+</div>
+<script>
+    const addOverlay = document.getElementById('addConfirmOverlay');
+    const addButton = document.getElementById('addConfirmButton');
+    const goBackToSearch = () => window.location.href = 'search.html';
+
+    const showAddModal = () => {
+        addOverlay.classList.add('is-active');
+        addOverlay.setAttribute('aria-hidden', 'false');
+    };
+
+    const hideAddModal = () => {
+        addOverlay.classList.remove('is-active');
+        addOverlay.setAttribute('aria-hidden', 'true');
+        goBackToSearch();
+    };
+
+    addButton.addEventListener('click', showAddModal);
+    document.getElementById('addOkBtn').addEventListener('click', hideAddModal);
+    document.getElementById('addCancelBtn').addEventListener('click', hideAddModal);
+    addOverlay.addEventListener('click', (event) => {
+        if (event.target === addOverlay) {
+            hideAddModal();
+        }
+    });
+</script>
+</body>
+</html>
+
